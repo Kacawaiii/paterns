@@ -3,7 +3,7 @@ Hyperloop Pattern Implementation
 A reactive, event-driven pattern for handling data flow in a continuous loop
 """
 
-from typing import Callable, Any, List
+from typing import Callable, Any, List, Optional
 from collections import deque
 import time
 
@@ -36,7 +36,7 @@ class HyperloopPattern:
             result = stage(result)
         return result
     
-    def run_once(self) -> None:
+    def run_once(self) -> Optional[Any]:
         """Process one item from the queue"""
         if self.queue:
             data = self.queue.popleft()
